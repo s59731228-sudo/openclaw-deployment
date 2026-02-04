@@ -7,7 +7,7 @@ metadata:
     "vector_search": true,
     "mcp_enabled": true,
     "language": "zh-TW",
-    "version": "1.1"
+    "version": "1.2"
   }
 ---
 
@@ -187,7 +187,7 @@ openclaw_docs("deployment")  # 查詢部署方式
 
 ---
 
-## 📚 知識庫索引（8 份文檔）
+## 📚 知識庫索引（14 份文檔）
 
 | 文檔 | 標籤 | 內容摘要 |
 |------|------|----------|
@@ -199,6 +199,12 @@ openclaw_docs("deployment")  # 查詢部署方式
 | 06-記憶系統.md | `memory`, `soul` | SOUL.md 格式 |
 | 07-MCP工具完整手冊.md | `tools`, `parameters` | 參數詳解 |
 | 08-十種以上玩法.md | `playbook`, `use-cases` | 12 種玩法 |
+| 09-MCP整合深度指南.md | `mcp`, `protocol` | MCP 協議深度 |
+| 10-Soul-System向量整合.md | `vector`, `embedding` | 向量檢索整合 |
+| 11-完整規範框架.md | `framework`, `specification` | 3x3 搜尋整理 |
+| 12-輪詢策略最佳實踐.md | `polling`, `rotation`, `fallback` | 輪詢策略工作流 |
+| 13-部署參數與相依性.md | `parameters`, `dependencies` | 環境變數、Docker |
+| 14-向量資料庫整合.md | `vector`, `embedding`, `chromadb` | 向量 DB 整合 |
 
 ---
 

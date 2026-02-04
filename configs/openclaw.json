@@ -1,0 +1,90 @@
+{
+  "$schema": "https://openclaw.ai/schemas/config.json",
+  "version": "1.0",
+  
+  "gateway": {
+    "port": 18789,
+    "host": "0.0.0.0",
+    "cors": {
+      "enabled": true,
+      "origins": ["*"]
+    }
+  },
+  
+  "models": {
+    "default": "claude-sonnet-4-20250514",
+    "providers": {
+      "anthropic": {
+        "enabled": true,
+        "models": [
+          "claude-sonnet-4-20250514",
+          "claude-opus-4-20250514"
+        ],
+        "apiKey": "${ANTHROPIC_API_KEY}"
+      },
+      "openai": {
+        "enabled": true,
+        "models": [
+          "gpt-4o",
+          "gpt-4o-mini"
+        ],
+        "apiKey": "${OPENAI_API_KEY}"
+      },
+      "google": {
+        "enabled": true,
+        "models": [
+          "gemini-2.0-flash",
+          "gemini-2.0-pro"
+        ],
+        "apiKey": "${GOOGLE_API_KEY}"
+      },
+      "openrouter": {
+        "enabled": false,
+        "apiKey": "${OPENROUTER_API_KEY}",
+        "models": ["auto"]
+      }
+    },
+    "routing": {
+      "strategy": "fallback",
+      "fallbackOrder": ["anthropic", "openai", "google"],
+      "costOptimization": true
+    }
+  },
+  
+  "skills": {
+    "directory": "./skills",
+    "autoLoad": true,
+    "allowRemote": false
+  },
+  
+  "memory": {
+    "enabled": true,
+    "provider": "local",
+    "vectorDb": {
+      "type": "qdrant",
+      "url": "http://qdrant:6333"
+    },
+    "contextWindow": {
+      "maxTokens": 128000,
+      "reserveForOutput": 8000
+    }
+  },
+  
+  "security": {
+    "rateLimit": {
+      "enabled": true,
+      "maxRequests": 100,
+      "windowMs": 60000
+    },
+    "audit": {
+      "enabled": true,
+      "logFile": "/app/data/audit.log"
+    }
+  },
+  
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "file": "/app/data/openclaw.log"
+  }
+}
